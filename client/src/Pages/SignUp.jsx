@@ -59,29 +59,23 @@ const SignUp = () => {
     if (!signup) {
       console.log(email.password, 1);
 
-      //admin login
-      if (email === "admin@gmail.com" && password === "admin") {
-        gotoadmin();
-      }
-
       //userlogin
-      else {
-        Axios.post("https://taskmanager-fg8y.onrender.com/login", {
-          email,
-          password,
+
+      Axios.post("https://taskmanager-fg8y.onrender.com/login", {
+        email,
+        password,
+      })
+        .then((response) => {
+          if (response.data && response.data.Status === "Success") {
+            gotohome();
+            toast.success("Login successful");
+          } else {
+            toast.error(`Error: ${response.data.Error}`);
+          }
         })
-          .then((response) => {
-            if (response.data && response.data.Status === "Success") {
-              gotohome();
-              toast.success("Login successful");
-            } else {
-              toast.error(`Error: ${response.data.Error}`);
-            }
-          })
-          .catch((error) => {
-            console.error("error inserting data", error);
-          });
-      }
+        .catch((error) => {
+          console.error("error inserting data", error);
+        });
     }
   };
 
