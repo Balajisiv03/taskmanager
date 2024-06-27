@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-// import homeimg from "../assets/homeimg.jpg";
 
 const Home = () => {
   const [tasks, setTasks] = useState([]);
@@ -64,14 +63,6 @@ const Home = () => {
   return (
     <div>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        {/* <div
-          className="hidden md:flex md:w-1/2 m-7"
-          style={{
-            backgroundImage: `url(${homeimg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        ></div> */}
         <div className="w-full max-w-4xl bg-white rounded-lg p-8 shadow">
           <h2 className="text-2xl font-bold mb-4">Task List</h2>
           <div className="flex justify-between mb-4">
