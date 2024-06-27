@@ -13,7 +13,7 @@ const EditTask = () => {
   });
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/tasks/${id}`)
+    Axios.get(`https://taskmanager-fg8y.onrender.com/${id}`)
       .then((res) => {
         setValues({
           ...values,
@@ -26,7 +26,7 @@ const EditTask = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    Axios.put(`http://localhost:3001/tasks/${id}`, values)
+    Axios.put(`https://taskmanager-fg8y.onrender.com/tasks/${id}`, values)
       .then((res) => {
         navigate("/home");
         toast.success("Task updated successfully");

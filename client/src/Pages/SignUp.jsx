@@ -34,7 +34,7 @@ const SignUp = () => {
       if (!name || !password || !email) {
         alert("enter the name,email and password");
       } else {
-        Axios.post("http://localhost:3001/signup", {
+        Axios.post("https://taskmanager-fg8y.onrender.com/signup", {
           name,
           email,
           password,
@@ -66,7 +66,7 @@ const SignUp = () => {
 
       //userlogin
       else {
-        Axios.post("http://localhost:3001/login", {
+        Axios.post("https://taskmanager-fg8y.onrender.com/login", {
           email,
           password,
         })

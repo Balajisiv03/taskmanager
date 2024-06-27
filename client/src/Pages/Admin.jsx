@@ -7,19 +7,21 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/tasks")
+    Axios.get("https://taskmanager-fg8y.onrender.com/tasks")
       .then((res) => setTasks(res.data))
       .catch((err) => console.log(err));
   }, []);
 
   const handleComplete = (id, completed) => {
-    Axios.put(`http://localhost:3001/tasks/${id}`, { completed: !completed })
+    Axios.put(`https://taskmanager-fg8y.onrender.com/tasks/${id}`, {
+      completed: !completed,
+    })
       .then((res) => {
         const updatedTask = {
           ...tasks.find((task) => task.id === id),
           completed: !completed,
         };
-        Axios.post(`http://localhost:3001/tasks/${id}`, updatedTask)
+        Axios.post(`https://taskmanager-fg8y.onrender.com/${id}`, updatedTask)
           .then((res) => {
             setTasks(
               tasks.map((task) =>
@@ -36,7 +38,7 @@ const Home = () => {
   };
 
   const handleDelete = (id) => {
-    Axios.delete(`http://localhost:3001/tasks/${id}`)
+    Axios.delete(`https://taskmanager-fg8y.onrender.com/${id}`)
       .then((res) => {
         setTasks(tasks.filter((task) => task.id !== id));
         // location.reload();

@@ -5,7 +5,7 @@ const IncompleteTasks = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/tasks?completed=false")
+    Axios.get("https://taskmanager-fg8y.onrender.com/tasks?completed=false")
       .then((res) => setTasks(res.data))
       .catch((err) => console.log(err));
   }, []);
