@@ -13,7 +13,7 @@ const EditTask = () => {
   });
 
   useEffect(() => {
-    Axios.get(`https://taskmanager-fg8y.onrender.com/${id}`)
+    Axios.get(`https://taskmanager-fg8y.onrender.com/tasks/${id}`)
       .then((res) => {
         setValues({
           ...values,
@@ -22,12 +22,12 @@ const EditTask = () => {
         });
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, []);
 
   const handleUpdate = (e) => {
     e.preventDefault();
     Axios.put(`https://taskmanager-fg8y.onrender.com/tasks/${id}`, values)
-      .then((res) => {
+      .then(() => {
         navigate("/home");
         toast.success("Task updated successfully");
       })

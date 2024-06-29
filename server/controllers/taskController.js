@@ -1,13 +1,3 @@
-// export const getAllTasks = (req, res) => {
-//   const sql = "SELECT * FROM tasks";
-//   req.db.query(sql, (err, result) => {
-//     if (err) {
-//       return res.json({ Message: "Server error" });
-//     }
-//     return res.json(result);
-//   });
-// };
-
 export const getAllTasks = (req, res) => {
   const { completed } = req.query;
   let sql = "SELECT * FROM tasks";

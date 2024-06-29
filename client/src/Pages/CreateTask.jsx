@@ -14,7 +14,7 @@ const CreateTask = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.post("https://taskmanager-fg8y.onrender.com/tasks", values)
-      .then((res) => {
+      .then(() => {
         navigate("/home");
         toast.success("Task created successsfully");
       })

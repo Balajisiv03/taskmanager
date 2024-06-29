@@ -21,10 +21,6 @@ const SignUp = () => {
     navigate("/home");
   };
 
-  const gotoadmin = () => {
-    navigate("admin");
-  };
-
   const Submitdata = (e) => {
     e.preventDefault();
     console.log("form data:", { name, email, password });

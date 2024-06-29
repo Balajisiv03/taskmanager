@@ -17,7 +17,7 @@ const Home = () => {
     Axios.put(`https://taskmanager-fg8y.onrender.com/tasks/${id}`, {
       completed: !completed,
     })
-      .then((res) => {
+      .then(() => {
         const updatedTask = {
           ...tasks.find((task) => task.id === id),
           completed: !completed,
@@ -26,7 +26,7 @@ const Home = () => {
           `https://taskmanager-fg8y.onrender.com/tasks/${id}`,
           updatedTask
         )
-          .then((res) => {
+          .then(() => {
             setTasks(
               tasks.map((task) =>
                 task.id === id ? { ...task, completed: !completed } : task
@@ -43,7 +43,7 @@ const Home = () => {
 
   const handleDelete = (id) => {
     Axios.delete(`https://taskmanager-fg8y.onrender.com/tasks/${id}`)
-      .then((res) => {
+      .then(() => {
         setTasks(tasks.filter((task) => task.id !== id));
         toast.success("Task deleted successfully");
       })
@@ -96,7 +96,7 @@ const Home = () => {
                   <td className="border-b p-4">{task.title}</td>
                   <td className="border-b p-4">{task.description}</td>
                   <td className="border-b p-4">
-                    {task.completed ? "Completed" : "Incomplete"}
+                    {task.completed ? "Finished" : "Yet to finish"}
                   </td>
                   <td className="border-b p-4">
                     <div className="flex items-center">
